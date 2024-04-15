@@ -19,7 +19,6 @@
       <span class="post-reading-time">{{ .ReadingTime }} {{ $.Site.Params.minuteReadingTime | default "min read" }} ({{ .WordCount }} {{ $.Site.Params.words | default "words" }})</span>
     {{- end -}}
   </div>
-
   {{ if .Params.tags }}
     <span class="post-tags">
       {{ range .Params.tags }}
@@ -28,6 +27,10 @@
     </span>
   {{ end }}
   {{ partial "cover.html" . }}
+
+  {{ partial "series.html" . }}
+
+  <div class="post-start"></div>
 
   {{ if (.Params.Toc | default .Site.Params.Toc) }}
     <div class="table-of-contents">
