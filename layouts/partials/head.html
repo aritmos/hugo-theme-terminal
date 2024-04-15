@@ -35,7 +35,9 @@
 {{- end }}
 
 <!-- Icons -->
-{{ if isset $.Site.Params "favicon" }}
+{{ if isset $.Site.Params "emoji" }}
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>{{ $.Site.Params.emoji }}</text></svg>">
+{{ else if isset $.Site.Params "favicon" }}
   <link rel="shortcut icon" href="{{ $.Site.Params.favicon | absURL }}">
 {{ else }}
   <link rel="shortcut icon" href="{{ printf "img/theme-colors/%s.png" (or .Params.color $.Site.Params.ThemeColor | default "orange") | absURL }}">
